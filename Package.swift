@@ -23,6 +23,10 @@ let package = Package(
                 .product(name: "NIOCore", package: "swift-nio"),
                 .product(name: "NIOPosix", package: "swift-nio"),
             ],
+            resources: [
+                .copy("Views"),
+                .copy("Public"),
+            ],
             swiftSettings: swiftSettings
         ),
         .testTarget(
@@ -37,7 +41,25 @@ let package = Package(
     swiftLanguageModes: [.v5]
 )
 
-var swiftSettings: [SwiftSetting] { [
+let swiftSettings: [SwiftSetting] = [
+    // Flags to enable Swift 6 compatibility
+    .enableUpcomingFeature("BareSlashRegexLiterals"),
+    .enableUpcomingFeature("ConciseMagicFile"),
+    .enableUpcomingFeature("ForwardTrailingClosures"),
+    .enableUpcomingFeature("ImportObjcForwardDeclarations"),
     .enableUpcomingFeature("DisableOutwardActorInference"),
+    .enableUpcomingFeature("ExistentialAny"),
+    .enableUpcomingFeature("DeprecateApplicationMain"),
+    .enableUpcomingFeature("GlobalConcurrency"),
+    .enableUpcomingFeature("IsolatedDefaultValues"),
     .enableExperimentalFeature("StrictConcurrency"),
-] }
+    // Flags to warn about the type checking getting too slow
+    .unsafeFlags(
+        [
+            "-Xfrontend",
+            "-warn-long-function-bodies=100",
+            "-Xfrontend",
+            "-warn-long-expression-type-checking=100",
+        ]
+    ),
+]
