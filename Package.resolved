@@ -1,5 +1,5 @@
 {
-  "originHash" : "8f71ef0d8935c18af9e94d38e173b188772060ad0fd4e814f3a053682d6074e1",
+  "originHash" : "3ddf0f4445de5bb3577d021ac4aaff7a91abb26447455603af656d251046ec80",
   "pins" : [
     {
       "identity" : "async-http-client",
@@ -233,6 +233,15 @@
       "state" : {
         "revision" : "a425e32f9b9d19c0ecab952cb4484c1c15e2536f",
         "version" : "4.113.2"
+      }
+    },
+    {
+      "identity" : "vaporhx",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/RussBaz/VaporHX.git",
+      "state" : {
+        "revision" : "203e490e20022949e10bb13a0dbdb767d027f70d",
+        "version" : "0.0.26"
       }
     },
     {
